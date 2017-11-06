@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message Board</title>
+    <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body ng-app="myApp">
+    <div class="container" ng-controller="MessageController as mc"> <!-- Container div -->
+        <h1>Message Board</h1>
+        <div>
+            <form>
+                <input type="text" ng-model="mc.message.name" placeholder="Enter Your Name">
+                <input type="text" ng-model="mc.message.message" placeholder="Enter Your Message">
+                <button class="btn btn-default" ng-click="mc.submitMessage(mc.message)">Submit Message</button>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-4 messageBox" ng-repeat="message in mc.results.data">
+                <p class="name">Name: {{message.name}}</p>
+                <p class="message">Message: {{message.message}}</p>
+            </div>
+        </div>
+    </div><!-- End container div -->
+</body>
+</html>
